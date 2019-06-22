@@ -1,0 +1,16 @@
+.list-settings-container {
+  position: absolute;
+  top: 34px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(18, 20, 29, 80);
+}
+
+.list-settings {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  padding: 10px;
+  border: 1px solid $cyan;
+}

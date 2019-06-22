@@ -1,0 +1,17 @@
+.home-col-left {
+  background: -moz-linear-gradient(-45deg, $white 0%, $cyan 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, $white 0%,$cyan 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, $white 0%,$cyan 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  color: $black;
+}
+
+.home-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.home-logo {
+  width: 300px;
+  height: 141px;
+}

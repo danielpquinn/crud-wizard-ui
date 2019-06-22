@@ -1,0 +1,147 @@
+// Simplex 4.2.1
+// Bootswatch
+
+
+// Variables ===================================================================
+
+$web-font-path: "https://fonts.googleapis.com/css?family=Open+Sans:400,700" !default;
+@import url($web-font-path);
+
+@mixin btn-gradient($color){
+  @include gradient-x(darken($color, 20%), lighten($color, 10%));
+  filter: none;
+  border: 0;
+}
+
+// Navbar ======================================================================
+
+.navbar {
+  border-width: 1px;
+  border-style: solid;
+
+  &-fixed-top {
+    border-width: 0 0 1px 0;
+  }
+
+  &-fixed-bottom {
+    border-top-width: 1px 0 0 0;
+    border-style: solid;
+  }
+}
+
+.bg-primary {
+  background-color: $primary !important;
+  border-color: darken($primary, 6.5%) !important;
+}
+
+.bg-dark {
+  border-color: $gray-500 !important;
+}
+
+.bg-light {
+  border-color: $gray-500;
+}
+
+// Buttons =====================================================================
+
+.btn-primary,
+.btn-primary:hover {
+  color: $light;
+  @include btn-gradient($primary);
+}
+
+.btn-secondary,
+.btn-secondary:hover {
+  color: $primary;
+  @include btn-gradient($secondary);
+}
+
+.btn-light,
+.btn-light:hover,
+.btn-light:focus {
+  color: $dark;
+}
+
+.btn-secondary:focus,
+.btn-secondary:not([disabled]):not(.disabled):active,
+.btn-secondary:not([disabled]):not(.disabled).active {
+  box-shadow: 0 0 0 0.2rem rgba($gray-200, 0.5);
+}
+
+.btn-success,
+.btn-success:hover {
+  @include btn-gradient($success);
+}
+
+.btn-info,
+.btn-info:hover {
+  @include btn-gradient($info);
+}
+
+.btn-warning,
+.btn-warning:hover {
+  @include btn-gradient($warning);
+}
+
+.btn-danger,
+.btn-danger:hover {
+  @include btn-gradient($danger);
+}
+
+.btn-dark,
+.btn-dark:hover {
+  @include btn-gradient($dark);
+}
+
+.btn-light,
+.btn-light:hover {
+  @include btn-gradient($light);
+}
+
+.btn-outline-secondary {
+  border-color: $gray-400;
+  color: $gray-400;
+
+  &:hover {
+    background-color: $gray-400;
+    color: $white;
+  }
+}
+
+.form-control::selection {
+  background: $dark;
+  color: $light;
+}
+
+// Typography ==================================================================
+
+// .text-secondary {
+//   color: $gray-700 !important;
+// }
+
+// Tables ======================================================================
+
+// Forms =======================================================================
+
+legend,
+label {
+  color: $headings-color;
+}
+
+// Navs =======================================================================
+
+.breadcrumb {
+  border: 1px solid $gray-400;
+}
+
+.pagination {
+  .page-link:hover {
+    text-decoration: none;
+  }
+}
+
+// Indicators ==================================================================
+
+// Progress bars ===============================================================
+
+// Containers ==================================================================
