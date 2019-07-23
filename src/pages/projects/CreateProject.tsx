@@ -3,10 +3,10 @@ import * as H from "history";
 import { cloneDeep } from "lodash";
 import * as React from "react";
 import { Link } from "react-router-dom";
-import { ProjectForm } from "src/components/projects/ProjectForm";
 import { getConfigManager } from "src/lib/ConfigManager";
 import { getErrorMessage } from "src/lib/error";
 import { getToastManager } from "src/lib/ToastManager";
+import { ProjectForm } from "src/pages/projects/ProjectForm";
 
 interface IProps {
   history: H.History;

@@ -2,14 +2,14 @@ import * as axios from "axios";
 import { cloneDeep } from "lodash";
 import * as React from "react";
 import { Link, match } from "react-router-dom";
-import { ProjectForm } from "src/components/projects/ProjectForm";
 import { getConfigManager } from "src/lib/ConfigManager";
 import { getErrorMessage } from "src/lib/error";
 import { getToastManager } from "src/lib/ToastManager";
+import { ProjectForm } from "src/pages/projects/ProjectForm";
 import { IProjectResponseBody } from "src/types/ProjectResponseBody";
 
 interface IProps {
-  match: match<{ id: string }>
+  match: match<{ projectId: string }>
 }
 
 interface IState {
@@ -55,7 +55,7 @@ export class EditProject extends React.Component<IProps, IState> {
   }
 
   private loadProject = async () => {
-    const id = this.props.match.params.id;
+    const id = this.props.match.params.projectId;
     const response = await axios.default.get(`${getConfigManager().getConfig().apiBaseUrl}/api/v1/projects/${id}`);
     const project = response.data;
 
@@ -83,7 +83,7 @@ export class EditProject extends React.Component<IProps, IState> {
       }
     }
 
-    const id = this.props.match.params.id;
+    const id = this.props.match.params.projectId;
     try {
       await axios.default.put(`${getConfigManager().getConfig().apiBaseUrl}/api/v1/projects/${id}`, parsedValues);
       getToastManager().addToast(`Edited project "${parsedValues.name}"`, "success");

@@ -20,16 +20,7 @@ class ProjectManager {
 
     if (!response.data) { return null; }
 
-    this.project = {
-      id: response.data.id,
-      name: response.data.name,
-      specs: response.data.specs,
-      resources: response.data.resources,
-      getTotalResults: response.data.getTotalResults,
-      initialize: response.data.initialize,
-      addPageParams: response.data.addPageParams,
-      signOut: response.data.signOut
-    };
+    this.project = response.data;
 
     this.evalField(this.project, "initialize");
     this.evalField(this.project, "getTotalResults");

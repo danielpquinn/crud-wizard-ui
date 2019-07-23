@@ -3,8 +3,8 @@ import * as H from "history";
 import * as React from "react";
 import { Field, Form as FinalForm } from "react-final-form";
 import { Link } from "react-router-dom";
-import { Home } from "src/Home";
 import { getConfigManager } from "src/lib/ConfigManager";
+import { Home } from "src/pages/Home";
 
 interface IProps {
   history: H.History;
@@ -12,7 +12,6 @@ interface IProps {
 
 interface IState {
   response: axios.AxiosResponse | null;
-  submitted: boolean;
   disabled: boolean;
 }
 
@@ -21,15 +20,14 @@ interface IFormValues {
   password: string;
 }
 
-export class LogIn extends React.Component<IProps, IState> {
+export class SignUp extends React.Component<IProps, IState> {
 
   constructor(props: IProps) {
     super(props);
 
     this.state = {
       disabled: false,
-      response: null,
-      submitted: false
+      response: null
     };
   }
 
@@ -52,7 +50,8 @@ export class LogIn extends React.Component<IProps, IState> {
 
     return (
       <Home>
-        <h2 className="mb-4">Log In 🧙‍♂️</h2>
+        <h2 className="mb-4">Free for 30 days 🧙‍♂️</h2>
+        <h5 className="mb-4">No credit card required to sign up, cancel any time.</h5>
         <FinalForm
           onSubmit={this.onSubmit}
           render={({ handleSubmit }) => (
@@ -83,13 +82,13 @@ export class LogIn extends React.Component<IProps, IState> {
               {error}
 
               <p className="text-center">
-                <button type="submit" disabled={disabled} className="btn btn-lg btn-primary w-100">Log In</button>
+                <button type="submit" disabled={disabled} className="btn btn-lg btn-primary w-100">Create Account</button>
               </p>
             </form>
           )}
         />
         <p className="text-center">
-            Don't have an account? <Link to="/">Sign Up</Link>
+          Already have an account? <Link to="/login">Log In</Link>
         </p>
       </Home>
     );
@@ -104,7 +103,7 @@ export class LogIn extends React.Component<IProps, IState> {
     this.setState({ disabled: true });
 
     try {
-      response = await axios.default.post(`${getConfigManager().getConfig().apiBaseUrl}/api/v1/login`, {
+      response = await axios.default.post(`${getConfigManager().getConfig().apiBaseUrl}/api/v1/users`, {
         email: values.email,
         password: values.password
       });

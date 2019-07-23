@@ -4,20 +4,19 @@ import "react-codemirror/node_modules/codemirror/lib/codemirror.css";
 import "react-codemirror/node_modules/codemirror/mode/javascript/javascript";
 import * as ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, RouteComponentProps, withRouter } from "react-router-dom";
-import { ResourceDesktop } from "src/components/resources/ResourceDesktop";
 import { Toaster } from "src/components/Toaster";
+import { authTokenKey } from "src/constants";
 import "src/index.css";
 import { getToastManager } from "src/lib/ToastManager";
-import { LogIn } from "src/LogIn";
 import { GettingStartedDoc } from "src/pages/docs/GettingStartedDoc";
 import { IntroductionDoc } from "src/pages/docs/IntroductionDoc";
+import { LogIn } from "src/pages/LogIn";
 import { CreateProject } from "src/pages/projects/CreateProject";
 import { EditProject } from "src/pages/projects/EditProject";
 import { Projects } from "src/pages/projects/Projects";
+import { ResourceDesktop } from "src/pages/resources/ResourceDesktop";
+import { SignUp } from "src/pages/SignUp";
 import registerServiceWorker from "src/registerServiceWorker";
-import { SignUp } from "src/SignUp";
-
-const authTokenKey = "authToken";
 
 class App extends React.Component<RouteComponentProps, {}> {
 
@@ -64,8 +63,8 @@ class App extends React.Component<RouteComponentProps, {}> {
         <Route path="/login" component={LogIn} />
         <Route path="/projects" exact={true} component={Projects} />
         <Route path="/create-project" component={CreateProject} />
-        <Route path="/projects/:id/edit" component={EditProject} />
-        <Route path="/projects/:id" component={ResourceDesktop} />
+        <Route path="/projects/:projectId/edit" component={EditProject} />
+        <Route path="/projects/:projectId" component={ResourceDesktop} />
         <Toaster />
       </div>
     );

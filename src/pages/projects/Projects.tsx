@@ -5,6 +5,7 @@ import { Alert } from "src/components/Alert";
 import { getConfigManager } from 'src/lib/ConfigManager';
 import { getErrorMessage } from "src/lib/error";
 import { getToastManager } from "src/lib/ToastManager";
+import { Layout } from "src/pages/Layout";
 import { IProjectResponseBody } from "src/types/ProjectResponseBody";
 
 interface IState {
@@ -49,12 +50,12 @@ export class Projects extends React.Component<{}, IState> {
               return (
                 <tr key={project.id}>
                   <td className="align-middle">{project.name}</td>
-                  <td className="align-middle"><Link to={`/desktop/${project.id}`}>Go to desktop</Link></td>
+                  <td className="align-middle"><Link to={`/projects/${project.id}`}>Go to desktop</Link></td>
                   <td className="align-middle text-right">
                     <Link
                       title="Edit project"
                       className="btn btn-lg btn-link"
-                      to={`/projects/${project.id}`}
+                      to={`/projects/${project.id}/edit`}
                     >
                       <i className="zmdi zmdi-edit" />
                     </Link>
@@ -76,28 +77,18 @@ export class Projects extends React.Component<{}, IState> {
     }
 
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-12">
-          <nav aria-label="breadcrumb">
-            <ol className="breadcrumb">
-              <li className="breadcrumb-item active">Projects</li>
-            </ol>
-          </nav>
+      <Layout>
+        <h3>Projects</h3>
 
-            <h3>Projects</h3>
-
-            <div className="card">
-              <div className="card-header">
-                <Link className="btn btn-primary btn-sm" to="/create-project">Create Project</Link>
-              </div>
-              <div className="card-body">
-                {content}
-              </div>
-            </div>
+        <div className="card">
+          <div className="card-header">
+            <Link className="btn btn-primary btn-sm" to="/create-project">Create Project</Link>
+          </div>
+          <div className="card-body">
+            {content}
           </div>
         </div>
-      </div>
+      </Layout>
     );
   }
 

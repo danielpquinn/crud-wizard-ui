@@ -1,11 +1,9 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
 import { getNavigationManager } from "src/lib/NavigationManager";
 import { getProjectManager } from "src/lib/ProjectManager";
 
 interface IState {
   accountOpen: boolean;
-  settingsOpen: boolean;
 }
 
 /**
@@ -19,8 +17,7 @@ export class ResourceDesktopHeader extends React.Component<{}, IState> {
     super(props);
 
     this.state = {
-      accountOpen: false,
-      settingsOpen: false
+      accountOpen: false
     };
   }
 
@@ -33,7 +30,7 @@ export class ResourceDesktopHeader extends React.Component<{}, IState> {
   }
 
   public render() {
-    const { accountOpen, settingsOpen } = this.state;
+    const { accountOpen } = this.state;
     const project = getProjectManager().getProject();
     const signOut = project.signOut;
 
@@ -43,6 +40,7 @@ export class ResourceDesktopHeader extends React.Component<{}, IState> {
         <button
           className="btn-link navbar-toggler d-block"
           type="button"
+          
           aria-controls="navbarNavDropdown"
           aria-label="Toggle navigation"
           onClick={this.toggleMenuOpen}
@@ -51,21 +49,6 @@ export class ResourceDesktopHeader extends React.Component<{}, IState> {
         </button>
         <span className="navbar-brand mr-auto">{project.name}</span>
         <ul className="navbar-nav">
-          <li className={`nav-item dropdown ${settingsOpen ? "show" : ""}`}>
-            <a
-              href="javascript:void(0);"
-              className="nav-link dropdown-toggle p-2"
-              role="button"
-              aria-haspopup="true"
-              aria-expanded={settingsOpen}
-              onClick={this.toggleSettingsOpen}
-            >
-              <i className="zmdi zmdi-settings"/>
-            </a>
-            <div className={`dropdown-menu dropdown-menu-right ${settingsOpen ? "show" : ""}`}>
-              <Link className="dropdown-item" to={`/projects/${project.id}`}>Edit project</Link>
-            </div>
-          </li>
           {signOut && (
             <li className={`nav-item dropdown ${accountOpen ? "show" : ""}`}>
               <a
@@ -79,7 +62,7 @@ export class ResourceDesktopHeader extends React.Component<{}, IState> {
                 <i className="zmdi zmdi-account"/>
               </a>
               <div className={`dropdown-menu dropdown-menu-right ${accountOpen ? "show" : ""}`}>
-                <a className="dropdown-item" href="javascript:void(0);" onClick={signOut}>Sign out</a>
+                <a className="dropdown-item" href="javascript:void(0);" onClick={signOut}>Sign out from {project.name}</a>
               </div>
             </li>
           )}
@@ -117,21 +100,6 @@ export class ResourceDesktopHeader extends React.Component<{}, IState> {
   }
 
   /**
-   * Toggle settings menu visibility
-   */
-  private toggleSettingsOpen = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.stopPropagation();
-
-    this.setState({
-      settingsOpen: !this.state.settingsOpen
-    }, () => {
-      if (this.state.settingsOpen) {
-        window.addEventListener("click", this.onWindowClick);
-      }
-    });
-  }
-
-  /**
    * Close all menus when escape key is pressed
    */
   private onKeyUp = (e: KeyboardEvent) => {
@@ -154,8 +122,7 @@ export class ResourceDesktopHeader extends React.Component<{}, IState> {
 
   private closeMenus() {
     this.setState({
-      accountOpen: false,
-      settingsOpen: false
+      accountOpen: false
     });
   }
 }

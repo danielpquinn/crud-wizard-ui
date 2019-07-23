@@ -1,3 +1,4 @@
+export const authTokenKey = "authToken";
 export const headerHeight = 34;
 export const navigationWidth = 300;
 export const defaultWindowWidth = 600;
