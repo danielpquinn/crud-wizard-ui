@@ -42,9 +42,6 @@ class HeaderWithoutRouterProps extends React.Component<RouteComponentProps<{ pro
         <header className="navbar pt-0 pb-0 border-0 navbar-expand-lg">
           <span className="navbar-brand mr-auto">crud wizard</span>
           <ul className="navbar-nav">
-            <li className="nav-item">
-              <Link className="nav-link" to="/projects">Projects</Link>
-            </li>
             {projectId && (
               <li><Link className="nav-link" to={`/projects/${projectId}/edit`}>Edit This Project</Link></li>
             )}
