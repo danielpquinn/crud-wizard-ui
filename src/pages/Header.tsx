@@ -30,7 +30,6 @@ class HeaderWithoutRouterProps extends React.Component<RouteComponentProps<{ pro
   }
 
   public render() {
-    const { projectId } = this.props.match.params;
     const { project, settingsOpen } = this.state;
 
     if (!project) {
@@ -42,12 +41,6 @@ class HeaderWithoutRouterProps extends React.Component<RouteComponentProps<{ pro
         <header className="navbar pt-0 pb-0 border-0 navbar-expand-lg">
           <span className="navbar-brand mr-auto">crud wizard</span>
           <ul className="navbar-nav">
-            <li className="nav-item">
-              <Link className="nav-link" to="/projects">Projects</Link>
-            </li>
-            {projectId && (
-              <li><Link className="nav-link" to={`/projects/${projectId}/edit`}>Edit This Project</Link></li>
-            )}
             <li className={`nav-item dropdown ${settingsOpen ? "show" : ""}`}>
               <a
                 href="javascript:void(0);"
@@ -68,7 +61,7 @@ class HeaderWithoutRouterProps extends React.Component<RouteComponentProps<{ pro
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
             <li className="breadcrumb-item">
-              <Link className="nav-link" to="/projects">Projects</Link>
+              <Link to="/projects">Projects</Link>
             </li>
             <li className="breadcrumb-item"><a href="#">{project.name}</a></li>
             <li className="breadcrumb-item active" aria-current="page">Desktop</li>
