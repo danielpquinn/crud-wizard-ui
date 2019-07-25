@@ -61,7 +61,7 @@ class HeaderWithoutRouterProps extends React.Component<RouteComponentProps<{ pro
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
             <li className="breadcrumb-item">
-              <Link className="nav-link" to="/projects">Projects</Link>
+              <Link to="/projects">Projects</Link>
             </li>
             <li className="breadcrumb-item"><a href="#">{project.name}</a></li>
             <li className="breadcrumb-item active" aria-current="page">Desktop</li>
