@@ -31,7 +31,7 @@ class App extends React.Component<RouteComponentProps, {}> {
       }
       return config;
     });
-    
+
     // Redirect to login on 401
     axios.default.interceptors.response.use(
       response => response,
@@ -65,6 +65,7 @@ class App extends React.Component<RouteComponentProps, {}> {
         <Route path="/create-project" component={CreateProject} />
         <Route path="/projects/:projectId/edit" component={EditProject} />
         <Route path="/projects/:projectId" component={ResourceDesktop} />
+        <Route path="/projects/{projectId}/desktop" component={EditProject} />
         <Toaster />
       </div>
     );
