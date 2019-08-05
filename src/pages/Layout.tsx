@@ -1,17 +1,18 @@
 import * as React from "react";
-import { Header } from "src/pages/Header";
+import { Header, IHeaderProps } from "src/pages/Header";
 
-export class Layout extends React.Component<{}, {}> {
+export class Layout extends React.Component<IHeaderProps, {}> {
 
   public render(): React.ReactNode {
-    const { children } = this.props;
+    const { breadcrumbs, pageTitle, children } = this.props;
 
     return (
       <>
-        <Header />
-        <div className="container">
-          {children}
-        </div>
+        <Header
+          breadcrumbs={breadcrumbs}
+          pageTitle={pageTitle}
+        />
+        {children}
       </>
     );
   }

@@ -263,7 +263,8 @@ export class ListResources extends React.Component<IProps, IState> {
         />
         {error}
         {showSettings && <ListSettings
-          onSubmit={(_) => null} visibleColumns={visibleColumns}
+          onSubmit={(_) => null}
+          visibleColumns={visibleColumns}
         />}
       </div>
     );

@@ -39,7 +39,7 @@ $dark:          $black !default;
 
 // Body
 
-$body-bg:                   $black !default;
+$body-bg:                   $white !default;
 
 // Fonts
 
@@ -58,6 +58,8 @@ $nav-link-padding-y:                .9rem !default;
 $nav-link-disabled-color:           $gray-400 !default;
 
 $nav-tabs-border-color:             $gray-300 !default;
+
+$nav-tabs-link-active-color:        $gray-700 !default;
 
 // Navbar
 

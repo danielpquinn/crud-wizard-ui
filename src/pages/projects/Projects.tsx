@@ -38,13 +38,6 @@ export class Projects extends React.Component<{}, IState> {
     } else {
       content = (
         <table className="table table-sm w-100">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Url</th>
-              <th/>
-            </tr>
-          </thead>
           <tbody>
             {projects.map((project) => {
               return (
@@ -53,19 +46,19 @@ export class Projects extends React.Component<{}, IState> {
                   <td className="align-middle"><Link to={`/projects/${project.id}/desktop`}>Go to desktop</Link></td>
                   <td className="align-middle text-right">
                     <Link
-                      title="Edit project"
-                      className="btn btn-lg btn-link"
+                      title="Edit"
+                      className="btn btn-link"
                       to={`/projects/${project.id}/edit`}
                     >
-                      <i className="zmdi zmdi-edit" />
+                      <i className="zmdi zmdi-edit"/> Edit
                     </Link>
                     <a
-                      title="Delete project"
-                      className="btn btn-lg btn-link"
+                      title="Delete"
+                      className="btn btn-link"
                       onClick={() => this.deleteProject(project.id)}
                       href="javascript:void(0);"
                     >
-                      <i className="zmdi zmdi-delete" />
+                      <i className="zmdi zmdi-delete"/> Delete
                     </a>
                   </td>
                 </tr>
@@ -77,15 +70,17 @@ export class Projects extends React.Component<{}, IState> {
     }
 
     return (
-      <Layout>
-        <h3>Projects</h3>
+      <Layout breadcrumbs={[]} pageTitle="Projects">
+        <div className="container">
+          <h3>Projects</h3>
 
-        <div className="card">
-          <div className="card-header">
-            <Link className="btn btn-primary btn-sm" to="/create-project">Create Project</Link>
-          </div>
-          <div className="card-body">
-            {content}
+          <div className="card">
+            <div className="card-header">
+              <Link className="btn btn-primary btn-sm" to="/create-project">Create Project</Link>
+            </div>
+            <div className="card-body">
+              {content}
+            </div>
           </div>
         </div>
       </Layout>

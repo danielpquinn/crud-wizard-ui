@@ -5,6 +5,7 @@ import { Link, match } from "react-router-dom";
 import { getConfigManager } from "src/lib/ConfigManager";
 import { getErrorMessage } from "src/lib/error";
 import { getToastManager } from "src/lib/ToastManager";
+import { Layout } from "src/pages/Layout";
 import { ProjectForm } from "src/pages/projects/ProjectForm";
 import { IProjectResponseBody } from "src/types/ProjectResponseBody";
 
@@ -37,20 +38,32 @@ export class EditProject extends React.Component<IProps, IState> {
     }
 
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-12">
-            <nav aria-label="breadcrumb">
-              <ol className="breadcrumb">
-                <li className="breadcrumb-item active"><Link to="/projects">Projects</Link></li>
-                <li className="breadcrumb-item active">{project.name}</li>
-              </ol>
-            </nav>
-            <h3>Edit Project</h3>
-            <ProjectForm onSubmit={this.onSubmit} initialValues={project} />
+      <Layout
+        breadcrumbs={[
+          {
+            title: "Projects",
+            to: "/projects"
+          }
+        ]}
+        pageTitle={project.name}
+      >
+        <ul className="nav nav-tabs">
+          <li className="nav-item">
+            <a className="nav-link active">Edit Project</a>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to={`/projects/${project.id}/desktop`}>View Project</Link>
+          </li>
+        </ul>
+        <div className="container p-5">
+          <div className="row">
+            <div className="col-12">
+              <h3>Edit Project</h3>
+              <ProjectForm onSubmit={this.onSubmit} initialValues={project} />
+            </div>
           </div>
         </div>
-      </div>
+      </Layout>
     );
   }
 

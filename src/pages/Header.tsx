@@ -1,40 +1,35 @@
-import * as axios from "axios";
 import * as React from "react";
-import { Link, RouteComponentProps, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { authTokenKey } from "src/constants";
-import { getConfigManager } from "src/lib/ConfigManager";
 import { getToastManager } from "src/lib/ToastManager";
-import { IProjectResponseBody } from "src/types/ProjectResponseBody";
+
+interface IBreadcrumb {
+  title: string;
+  to: string;
+}
+
+export interface IHeaderProps {
+  breadcrumbs: IBreadcrumb[];
+  pageTitle: string;
+}
 
 interface IState {
   settingsOpen: boolean;
 }
 
-interface IState {
-  project: IProjectResponseBody | null;
-}
+export class Header extends React.Component<IHeaderProps, IState> {
 
-class HeaderWithoutRouterProps extends React.Component<RouteComponentProps<{ projectId: string }>, IState> {
-
-  constructor(props: RouteComponentProps<{ projectId: string }>) {
+  constructor(props: IHeaderProps) {
     super(props);
 
     this.state = {
-      settingsOpen: false,
-      project: null
+      settingsOpen: false
     };
   }
 
-  public componentDidMount() {
-    this.loadProject();
-  }
-
   public render() {
-    const { project, settingsOpen } = this.state;
-
-    if (!project) {
-      return <></>;
-    }
+    const { breadcrumbs, pageTitle } = this.props;
+    const { settingsOpen } = this.state;
 
     return (
       <>
@@ -60,31 +55,14 @@ class HeaderWithoutRouterProps extends React.Component<RouteComponentProps<{ pro
         </header>
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
-            <li className="breadcrumb-item">
-              <Link to="/projects">Projects</Link>
-            </li>
-            <li className="breadcrumb-item"><a href="#">{project.name}</a></li>
-            <li className="breadcrumb-item active" aria-current="page">Desktop</li>
+            {breadcrumbs.map(breadcrumb => (
+              <li className="breadcrumb-item"><Link to={breadcrumb.to}>{breadcrumb.title}</Link></li>
+            ))}
+            <li className="breadcrumb-item active" aria-current="page">{pageTitle}</li>
           </ol>
         </nav>
       </>
     )
-  }
-
-  /**
-   * Load project data
-   */
-  private loadProject = async () => {
-    const id = this.props.match.params.projectId;
-    const response = await axios.default.get(`${getConfigManager().getConfig().apiBaseUrl}/api/v1/projects/${id}`);
-    const project = response.data;
-
-    if (project.specs) {
-      for (const spec of project.specs) {
-        spec.spec = JSON.stringify(spec.spec, null, 2);
-      }
-    }
-    this.setState({ project });
   }
 
   /**
@@ -93,7 +71,7 @@ class HeaderWithoutRouterProps extends React.Component<RouteComponentProps<{ pro
   private signOut = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     window.localStorage.removeItem(authTokenKey);
-    this.props.history.push("/");
+    // this.props.history.push("/login");
     getToastManager().addToast("Thanks for playing!")
   }
 
@@ -123,5 +101,3 @@ class HeaderWithoutRouterProps extends React.Component<RouteComponentProps<{ pro
     });
   }
 }
-
-export const Header = withRouter(HeaderWithoutRouterProps);

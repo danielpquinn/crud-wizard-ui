@@ -52,7 +52,8 @@ body {
 }
 
 .modal.window .modal-content {
-  box-sizing: border-box;
+  display: block;
+  height: 100%;
 }
 
 @media (min-width: 576px) {

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { match } from "react-router-dom";
+import { Link, match } from "react-router-dom";
 import { Toaster } from "src/components/Toaster";
 import { Window } from "src/components/Window";
 import { headerHeight } from "src/constants";
@@ -7,7 +7,7 @@ import { resetAxios } from "src/lib/axiosManager";
 import { getProjectManager } from "src/lib/ProjectManager";
 import { getTweenManager } from "src/lib/TweenManager";
 import { getWindowManager, IWindows, WindowType } from "src/lib/WindowManager";
-import { Header } from "src/pages/Header";
+import { Layout } from "src/pages/Layout";
 import { CreateResource } from "src/pages/resources/CreateResource";
 import { ListResources } from "src/pages/resources/ListResources";
 import { ResourceDesktopHeader } from "src/pages/resources/ResourceDesktopHeader";
@@ -50,8 +50,9 @@ export class ResourceDesktop extends React.Component<IProps, IState> {
 
   public render(): React.ReactNode {
     const { windows } = this.state;
+    const project = getProjectManager().getProject();
 
-    if (!windows) { return null; }
+    if (!windows || !project) { return null; }
 
     const windowIdOrder = Object.keys(windows).sort((a: string, b: string) => {
       return windows[a].index > windows[b].index ? -1 : 1;
@@ -59,8 +60,23 @@ export class ResourceDesktop extends React.Component<IProps, IState> {
     
     // tslint:disable:jsx-no-lambda
     return (
-      <>
-        <Header />
+      <Layout
+        pageTitle={project.name}
+        breadcrumbs={[
+          {
+            title: "Projects",
+            to: "/projects"
+          }
+        ]}
+      >
+        <ul className="nav nav-tabs">
+          <li className="nav-item">
+            <Link className="nav-link" to={`/projects/${project.id}/edit`}>Edit Project</Link>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link active">View Project</a>
+          </li>
+        </ul>
         <div className="desktop">
           <div className="windows">
             {windowIdOrder.map((windowId: string, i: number) => {
@@ -130,7 +146,7 @@ export class ResourceDesktop extends React.Component<IProps, IState> {
           <ResourceDesktopHeader />
           <Toaster />
         </div>
-      </>
+      </Layout>
     )
   }
 

@@ -216,6 +216,10 @@ export class ProjectForm extends React.Component<IProps, IState> {
                                         <td><Select options={innerOperationOptions} name={`${name}.getOperation`} /></td>
                                       </tr>
                                       <tr>
+                                        <td className="text-right pr-1">Update Operation</td>
+                                        <td><Select options={innerOperationOptions} name={`${name}.updateOperation`} /></td>
+                                      </tr>
+                                      <tr>
                                         <td className="text-right pr-1">Delete Operation</td>
                                         <td><Select options={innerOperationOptions} name={`${name}.deleteOperation`} /></td>
                                       </tr>
