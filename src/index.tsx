@@ -64,7 +64,7 @@ class App extends React.Component<RouteComponentProps, {}> {
         <Route path="/projects" exact={true} component={Projects} />
         <Route path="/create-project" component={CreateProject} />
         <Route path="/projects/:projectId/edit" component={EditProject} />
-        <Route path="/projects/{projectId}/desktop" component={ResourceDesktop} />
+        <Route path="/projects/:projectId/desktop" component={ResourceDesktop} />
         <Toaster />
       </div>
     );
