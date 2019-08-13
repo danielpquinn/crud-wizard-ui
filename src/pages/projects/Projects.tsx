@@ -50,7 +50,7 @@ export class Projects extends React.Component<{}, IState> {
               return (
                 <tr key={project.id}>
                   <td className="align-middle">{project.name}</td>
-                  <td className="align-middle"><Link to={`/projects/${project.id}`}>Go to desktop</Link></td>
+                  <td className="align-middle"><Link to={`/projects/${project.id}/desktop`}>Go to desktop</Link></td>
                   <td className="align-middle text-right">
                     <Link
                       title="Edit project"
@@ -107,7 +107,7 @@ export class Projects extends React.Component<{}, IState> {
     if (window.confirm("Are you sure you want to delete this project?")) {
       try {
         const response = await axios.default.delete(`${getConfigManager().getConfig().apiBaseUrl}/api/v1/projects/${id}`);
-    
+
         if (response.status < 400) {
           this.loadProjects();
           getToastManager().addToast("Deleted project", "success");
