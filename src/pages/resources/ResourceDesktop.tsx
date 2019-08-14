@@ -13,6 +13,7 @@ import { ListResources } from "src/pages/resources/ListResources";
 import { ResourceDesktopHeader } from "src/pages/resources/ResourceDesktopHeader";
 import { ResourceDetail } from "src/pages/resources/ResourceDetail";
 import { ResourceNavigation } from "src/pages/resources/ResourceNavigation";
+import { UpdateResource } from "src/pages/resources/UpdateResource";
 
 interface IProps {
   match: match<{ projectId: string }>
@@ -160,6 +161,8 @@ export class ResourceDesktop extends React.Component<IProps, IState> {
     switch (window.windowType) {
       case WindowType.Create:
         return <CreateResource {...window.props} />;
+      case WindowType.Update:
+        return <UpdateResource {...window.props} />;
       case WindowType.Detail:
         return <ResourceDetail {...window.props} />;
       case WindowType.List:

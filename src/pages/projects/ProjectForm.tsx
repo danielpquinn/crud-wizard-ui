@@ -251,6 +251,10 @@ export class ProjectForm extends React.Component<IProps, IState> {
                                         <td className="text-right pr-1">Get Detail Item</td>
                                         <td><CodeInput mode="javascript" name={`${name}.getDetailItem`}/></td>
                                       </tr>
+                                      <tr>
+                                        <td className="text-right pr-1">Get Update Form Defaults</td>
+                                        <td><CodeInput mode="javascript" name={`${name}.getUpdateFormDefaults`}/></td>
+                                      </tr>
                                     </tbody>
                                   </table>
                                   <FieldArray

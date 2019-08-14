@@ -30,6 +30,7 @@ class ProjectManager {
     for (const resource of this.project.resources) {
       this.evalField(resource, "getListItems");
       this.evalField(resource, "getDetailItem");
+      this.evalField(resource, "getUpdateFormDefaults");
     }
 
     if (this.project.initialize) {

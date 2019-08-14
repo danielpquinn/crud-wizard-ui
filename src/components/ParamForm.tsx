@@ -89,7 +89,7 @@ class NestedParamForm extends React.Component<INestedParamFormProps, INestedPara
             const nestedPath = path ? `${path}.${key}` : key;
             const description = properties[key].description;
             const info = description ? (
-              <i title={description} className="zmdi zmdi-info-outline" />
+              <i title={`${nestedPath}: ${description}`} className="zmdi zmdi-info-outline" />
             ) : null;
 
             fieldRows[row].push(

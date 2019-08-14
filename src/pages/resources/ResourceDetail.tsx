@@ -117,6 +117,9 @@ export class ResourceDetail extends React.Component<IProps, IState> {
             </ul>
           </div>
           <div className="col text-right">
+            {this.resource.updateOperation && (
+              <Button level="link" size="sm" onClick={this.openUpdateResourceWindow}><i className="zmdi zmdi-edit zmdi-hc-lg"/></Button>
+            )}
             {this.resource.deleteOperation && (
               <Button level="link" size="sm" onClick={this.deleteResource}><i className="zmdi zmdi-delete zmdi-hc-lg"/></Button>
             )}
@@ -175,6 +178,11 @@ export class ResourceDetail extends React.Component<IProps, IState> {
     }
 
     return null;
+  }
+
+  private openUpdateResourceWindow = () => {
+    const { id } = this.props;
+    getWindowManager().addWindow(`update:${id}`, WindowType.Update, this.props, [ "resourceId", "id", "breadcrumbs" ]);
   }
 
   private deleteResource = async () => {

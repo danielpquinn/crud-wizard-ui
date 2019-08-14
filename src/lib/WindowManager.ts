@@ -12,6 +12,7 @@ const addWindowOffset = 20;
 
 export enum WindowType {
   Create,
+  Update,
   List,
   Detail
 }

@@ -14,7 +14,8 @@ export interface IResource {
   getOperation: string;
   id: string;
   idField: string;
-  getDetailItem?: (response: AxiosResponse) => any[];
+  getDetailItem?: (response: AxiosResponse) => any;
+  getUpdateFormDefaults?: (response: AxiosResponse) => any;
   getListItems?: (response: AxiosResponse) => any[];
   listItemSchema?: string;
   listOperation: string;
@@ -23,5 +24,6 @@ export interface IResource {
   namePlural: string;
   parameterName: string;
   spec: string;
+  updateOperation?: string;
   relationships?: IRelationship[];
 }
