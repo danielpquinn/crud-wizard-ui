@@ -1,7 +1,7 @@
 @import "variables.scss";
 @import "node_modules/bootstrap/scss/bootstrap";
 @import "bootswatch.scss";
-@import "src/pages/docs/pretty-docs/styles.scss";
+
 
 html,
 body,
@@ -11,7 +11,7 @@ body,
 }
 
 body {
-  background: yellow;
+  background:  $gray-200;
 }
 
 .desktop {
@@ -134,3 +134,4 @@ nav.navigation.col-md-2.sidebar {
 @import "src/components/ListSettings.scss";
 @import "src/pages/projects/ProjectForm.scss";
 @import "src/pages/docs/DocsLayout.scss";
+
