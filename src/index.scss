@@ -1,6 +1,7 @@
 @import "variables.scss";
 @import "node_modules/bootstrap/scss/bootstrap";
 @import "bootswatch.scss";
+@import "src/pages/docs/pretty-docs/styles.scss";
 
 html,
 body,
@@ -10,7 +11,7 @@ body,
 }
 
 body {
-  background: $gray-200;
+  background: yellow;
 }
 
 .desktop {
@@ -78,7 +79,7 @@ body {
   cursor: -webkit-grab;
 }
 
-.grabbable:active { 
+.grabbable:active {
   cursor: grabbing;
   cursor: -moz-grabbing;
   cursor: -webkit-grabbing;
