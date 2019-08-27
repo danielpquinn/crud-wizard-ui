@@ -23,15 +23,6 @@ export class DocsLayout extends React.Component<{}, {}> {
                 <li className="breadcrumb-item"><a href="index.html">Home</a></li>
                 <li className="breadcrumb-item active">FAQs</li>
               </ol>
-              <div className="top-search-box">
-                <form className="form-inline search-form justify-content-center" action="" method="get">
-
-                  <input type="text" placeholder="Search..." name="search" className="form-control search-input" />
-
-                  <button type="submit" className="btn search-btn" value="Search"><i className="fas fa-search" /></button>
-
-                </form>
-              </div>
             </div>
           </header>
           <div className="doc-wrapper">
