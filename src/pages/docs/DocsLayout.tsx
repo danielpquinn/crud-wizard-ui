@@ -15,7 +15,7 @@ export class DocsLayout extends React.Component<{}, {}> {
                 <h1 className="logo">
                   <a href="index.html">
                     <span aria-hidden="true" className="icon_documents_alt icon" />
-                    <span className="text-highlight">Pretty</span><span className="text-bold" />
+                    <span className="text-highlight">Crud Wizard</span><span className="text-bold" />
                   </a>
                 </h1>
               </div>
