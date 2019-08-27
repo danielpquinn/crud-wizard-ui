@@ -29,7 +29,6 @@ export class DocsLayout extends React.Component<{}, {}> {
             <div className="container">
               <div id="doc-header" className="doc-header text-center">
                 <h1 className="doc-title"><span aria-hidden="true" className="icon icon_lifesaver" /> FAQs YO</h1>
-                <div className="meta"><i className="far fa-clock" /> Last updated: July 18th, 2018</div>
               </div>
               <div className="doc-body row">
                 <div className="doc-content col-md-9 col-12 order-1">
