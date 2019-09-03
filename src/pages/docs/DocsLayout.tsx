@@ -13,7 +13,7 @@ export class DocsLayout extends React.Component<{}, {}> {
             <div className="container">
               <div className="branding">
                 <h1 className="logo">
-                  <a href="index.html">
+                  <a href="http://localhost:3000/">
                     <span aria-hidden="true" className="icon_documents_alt icon" />
                     <span className="text-highlight">Crud Wizard</span><span className="text-bold" />
                   </a>
