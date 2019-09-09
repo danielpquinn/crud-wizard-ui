@@ -33,7 +33,6 @@ export class IntroductionDoc extends React.Component<{}, {}> {
           <h4>Development Tool</h4>
           <p>Crud wizard projects can be used alongside other tools like Postman or Swagger UI to give developers quick access to their API without having to spend time manually crafting calls to backend services. While Swagger UI provides fine-grained access to each operation in the spec, crud wizard's admin UI can provide a high-level, configurable UX that makes managing resources exposed by APIs more convenient.</p>
         </section>
-
       </DocsLayout>
     )
   }
