@@ -2,10 +2,14 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import { Title } from "../../components/Title";
 
-export class DocsLayout extends React.Component<{}, {}> {
+interface IProps {
+  title: string;
+}
+
+export class DocsLayout extends React.Component<IProps, {}> {
 
   public render() {
-    const { children } = this.props;
+    const { children, title } = this.props;
 
     return (
       <div className="docs">
@@ -21,15 +25,15 @@ export class DocsLayout extends React.Component<{}, {}> {
                 </h1>
               </div>
               <ol className="breadcrumb">
-                <li className="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li className="breadcrumb-item active">FAQs</li>
+                <li className="breadcrumb-item"><Link to="/">Home</Link></li>
+                <li className="breadcrumb-item active">{title}</li>
               </ol>
             </div>
           </header>
           <div className="doc-wrapper">
             <div className="container">
               <div id="doc-header" className="doc-header text-center">
-                <h1 className="doc-title"><span aria-hidden="true" className="icon icon_lifesaver" /><Title brand="foo" /></h1>
+                <h1 className="doc-title"><span aria-hidden="true" className="icon icon_lifesaver" /><Title title={title} /></h1>
               </div>
               <div className="doc-body row">
                 <div className="doc-content col-md-9 col-12 order-1">
