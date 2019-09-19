@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import { Title } from "../../components/Title";
 
-export class DocsLayout extends React.Component<{}, {}> {
+export class DocsLayout extends React.Component<{ title: string }, {}> {
 
   public render() {
     const { children } = this.props;
@@ -29,7 +29,7 @@ export class DocsLayout extends React.Component<{}, {}> {
           <div className="doc-wrapper">
             <div className="container">
               <div id="doc-header" className="doc-header text-center">
-                <h1 className="doc-title"><span aria-hidden="true" className="icon icon_lifesaver" /><Title brand="foo" /></h1>
+                <h1 className="doc-title"><span aria-hidden="true" className="icon icon_lifesaver" /><Title title={this.props.title} /></h1>
               </div>
               <div className="doc-body row">
                 <div className="doc-content col-md-9 col-12 order-1">

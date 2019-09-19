@@ -5,8 +5,7 @@ export class IntroductionDoc extends React.Component<{}, {}> {
 
   public render() {
     return (
-      <DocsLayout>
-        <h1>Introduction</h1>
+      <DocsLayout title="Introduction">
 
         <section>
           <h2>Features</h2>
