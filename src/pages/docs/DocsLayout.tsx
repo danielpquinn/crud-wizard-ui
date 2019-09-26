@@ -1,12 +1,12 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 import { Title } from "../../components/Title";
-\
+
 interface IProps {
   title: string;
 }
 
-export class DocsLayout extends React.Component<{ title: string }, {}> {
+export class DocsLayout extends React.Component<IProps, {}> {
 
   public render() {
     const { children, title } = this.props;
