@@ -2,6 +2,16 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import { Title } from "../../components/Title";
 
+interface IBreadcrumb {
+  title: string;
+  to: string;
+}
+
+export interface IHeaderProps {
+  breadcrumbs: IBreadcrumb[];
+  pageTitle: string;
+}
+
 interface IProps {
   title: string;
 }
