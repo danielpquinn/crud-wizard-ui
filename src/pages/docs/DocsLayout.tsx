@@ -1,15 +1,21 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 import { Title } from "../../components/Title";
-\
-interface IProps {
+
+interface IBreadcrumb {
   title: string;
+  to: string;
 }
 
-export class DocsLayout extends React.Component<{ title: string }, {}> {
+interface IProps {
+  title: string;
+  breadcrumbs: IBreadcrumb[];
+}
+
+export class DocsLayout extends React.Component<IProps,  {}> { 
 
   public render() {
-    const { children, title } = this.props;
+    const { breadcrumbs, children, title } = this.props;
 
     return (
       <div className="docs">
@@ -25,8 +31,12 @@ export class DocsLayout extends React.Component<{ title: string }, {}> {
                 </h1>
               </div>
               <ol className="breadcrumb">
-                <li className="breadcrumb-item"><Link to="/">Home</Link></li>
-                <li className="breadcrumb-item active">{title}</li>
+
+                {breadcrumbs.map(breadcrumb => (
+                  <li className="breadcrumb-item"><Link to={breadcrumb.to}>{breadcrumb.title}</Link></li>
+                ))}
+                <li className="breadcrumb-item active" aria-current="page">{title}</li>
+
               </ol>
             </div>
           </header>

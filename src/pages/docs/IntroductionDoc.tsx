@@ -5,7 +5,15 @@ export class IntroductionDoc extends React.Component<{}, {}> {
 
   public render() {
     return (
-      <DocsLayout title="Introduction">
+      <DocsLayout title="Introduction"    
+        
+      breadcrumbs={[
+          {
+            title: "Home",
+            to: "/"
+          }
+        ]}
+      >
 
         <section>
           <h2>Features</h2>
