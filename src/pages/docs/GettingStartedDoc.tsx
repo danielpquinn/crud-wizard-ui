@@ -5,7 +5,16 @@ export class GettingStartedDoc extends React.Component<{}, {}> {
 
   public render() {
     return (
-      <DocsLayout title="Getting Started">
+      <DocsLayout title="Getting Started" 
+      
+        breadcrumbs={[
+          {
+            title: "Home",
+            to: "/"
+          }
+        ]}
+      
+      >
 
         <p>This getting started guide will walk you through an integration with the Twilio API. When you are done with this guide, you will be able to view your Twilio account information and notifications.</p>
 

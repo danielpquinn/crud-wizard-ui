@@ -7,19 +7,15 @@ interface IBreadcrumb {
   to: string;
 }
 
-export interface IHeaderProps {
-  breadcrumbs: IBreadcrumb[];
-  pageTitle: string;
-}
-
 interface IProps {
   title: string;
+  breadcrumbs: IBreadcrumb[];
 }
 
-export class DocsLayout extends React.Component<IProps, {}> {
+export class DocsLayout extends React.Component<IProps,  {}> { 
 
   public render() {
-    const { children, title } = this.props;
+    const { breadcrumbs, children, title } = this.props;
 
     return (
       <div className="docs">
@@ -35,8 +31,12 @@ export class DocsLayout extends React.Component<IProps, {}> {
                 </h1>
               </div>
               <ol className="breadcrumb">
-                <li className="breadcrumb-item"><Link to="/">Home</Link></li>
-                <li className="breadcrumb-item active">{title}</li>
+
+                {breadcrumbs.map(breadcrumb => (
+                  <li className="breadcrumb-item"><Link to={breadcrumb.to}>{breadcrumb.title}</Link></li>
+                ))}
+                <li className="breadcrumb-item active" aria-current="page">{title}</li>
+
               </ol>
             </div>
           </header>
