@@ -2,10 +2,10 @@ import * as axios from "axios";
 import * as H from "history";
 import { cloneDeep } from "lodash";
 import * as React from "react";
-import { Link } from "react-router-dom";
 import { getConfigManager } from "src/lib/ConfigManager";
 import { getErrorMessage } from "src/lib/error";
 import { getToastManager } from "src/lib/ToastManager";
+import { Layout } from "src/pages/Layout";
 import { ProjectForm } from "src/pages/projects/ProjectForm";
 
 interface IProps {
@@ -33,20 +33,23 @@ export class CreateProject extends React.Component<IProps, IState> {
     }
 
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-12">
-            <nav aria-label="breadcrumb">
-              <ol className="breadcrumb">
-                <li className="breadcrumb-item active"><Link to="/projects">Projects</Link></li>
-                <li className="breadcrumb-item active">Create Project</li>
-              </ol>
-            </nav>
-            <h3>Create Project</h3>
-            <ProjectForm onSubmit={this.onSubmit} initialValues={undefined} />
+      <Layout breadcrumbs={[
+
+        {
+          title: "Projects",
+          to: "/projects"
+        }
+
+      ]} pageTitle="Create Project">
+        <div className="container">
+          <div className="row">
+            <div className="col-12">
+              <h3>Create Project</h3>
+              <ProjectForm onSubmit={this.onSubmit} initialValues={undefined} />
+            </div>
           </div>
         </div>
-      </div>
+      </Layout>
     );
   }
 
