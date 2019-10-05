@@ -42,23 +42,17 @@ export class Projects extends React.Component<{}, IState> {
             {projects.map((project) => {
               return (
                 <tr key={project.id}>
-                  <td className="align-middle">{project.name}</td>
-                  <td className="align-middle"><Link to={`/projects/${project.id}/desktop`}>Go to desktop</Link></td>
+                  <td className="align-middle">
+                    <Link to={`/projects/${project.id}/desktop`}>{project.name}</Link>
+                  </td>
                   <td className="align-middle text-right">
-                    <Link
-                      title="Edit"
-                      className="btn btn-link"
-                      to={`/projects/${project.id}/edit`}
-                    >
-                      <i className="zmdi zmdi-edit"/> Edit
-                    </Link>
                     <a
                       title="Delete"
                       className="btn btn-link"
                       onClick={() => this.deleteProject(project.id)}
                       href="javascript:void(0);"
                     >
-                      <i className="zmdi zmdi-delete"/> Delete
+                      <i className="zmdi zmdi-delete"/>
                     </a>
                   </td>
                 </tr>

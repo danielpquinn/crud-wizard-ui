@@ -54,7 +54,7 @@ export class SignUp extends React.Component<IProps, IState> {
         <h5 className="mb-4">No credit card required to sign up, cancel any time.</h5>
         <FinalForm
           onSubmit={this.onSubmit}
-          render={({ handleSubmit }) => (
+          render={({ handleSubmit, values }) => (
             <form onSubmit={handleSubmit}>
               <Field
                 name="email"
@@ -68,11 +68,25 @@ export class SignUp extends React.Component<IProps, IState> {
                 )}
               />
               <Field
+                type="password"
                 name="password" 
                 validate={value => !(value && value.length >= 8) ? "Password must be at least 8 characters long" : undefined}
                 render={({ input, meta }) => (
                   <div className="form-group">
                     <label>Password</label>
+                    <input placeholder="Enter password" type="password" className="form-control" {...input} />
+                    {meta.touched && meta.error && <small className="text-danger">{meta.error}</small>}
+                  </div>
+                )}
+              />
+
+              <Field
+                type="password"
+                name="confirmPassword" 
+                validate={value => value !== values.password ? "Passwords do not match" : undefined}
+                render={({ input, meta }) => (
+                  <div className="form-group">
+                    <label>Confirm Password</label>
                     <input placeholder="Enter password" type="password" className="form-control" {...input} />
                     {meta.touched && meta.error && <small className="text-danger">{meta.error}</small>}
                   </div>
@@ -88,7 +102,7 @@ export class SignUp extends React.Component<IProps, IState> {
           )}
         />
         <p className="text-center">
-          Already have an account? <Link to="/login">Log In</Link>
+          Already have an account? <Link to="/">Log In</Link>
         </p>
       </Home>
     );

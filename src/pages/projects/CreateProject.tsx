@@ -33,22 +33,16 @@ export class CreateProject extends React.Component<IProps, IState> {
     }
 
     return (
-      <Layout breadcrumbs={[
-
-        {
-          title: "Projects",
-          to: "/projects"
-        }
-
-      ]} pageTitle="Create Project">
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <h3>Create Project</h3>
-              <ProjectForm onSubmit={this.onSubmit} initialValues={undefined} />
-            </div>
-          </div>
-        </div>
+      <Layout
+        pageTitle="Create Project"
+        breadcrumbs={[
+          {
+            title: "Projects",
+            to: "/projects"
+          }
+        ]}
+      >
+        <ProjectForm onSubmit={this.onSubmit} initialValues={{ name: "", specs: [], resources: [] }} />
       </Layout>
     );
   }

@@ -69,6 +69,7 @@ export class LogIn extends React.Component<IProps, IState> {
                 )}
               />
               <Field
+                type="password"
                 name="password" 
                 validate={value => !(value && value.length >= 8) ? "Password must be at least 8 characters long" : undefined}
                 render={({ input, meta }) => (
@@ -89,7 +90,7 @@ export class LogIn extends React.Component<IProps, IState> {
           )}
         />
         <p className="text-center">
-            Don't have an account? <Link to="/">Sign Up</Link>
+            Don't have an account? <Link to="/signup">Sign Up</Link>
         </p>
       </Home>
     );

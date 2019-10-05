@@ -13,7 +13,6 @@ import { getNumColumns } from "src/lib/layout";
 import { getProjectManager } from "src/lib/ProjectManager";
 import { findOperationObject, IOperationObjectWithPathAndMethod, IOperationParameters, operate } from "src/lib/swagger";
 import { getWindowManager, WindowType } from "src/lib/WindowManager";
-import { ListSettings } from "src/pages/resources/ListResourcesSettings";
 import { IBreadcrumb } from "src/types/breadcrumb";
 import { IResource } from "src/types/resource";
 import { Response, Schema } from "src/types/swagger";
@@ -44,10 +43,12 @@ export class ListResources extends React.Component<IProps, IState> {
   private resource: IResource | undefined;
   private operation: IOperationObjectWithPathAndMethod | null;
   private schema: Schema | undefined;
+  private paramFormDebounceTimeout: number;
   
   constructor(props: IProps) {
     super(props);
     this.myRef = React.createRef();
+    this.paramFormDebounceTimeout = 0;
     const errorMessage = this.initialize();
     const visibleColumns = {};
 
@@ -248,9 +249,6 @@ export class ListResources extends React.Component<IProps, IState> {
               })}
               </tbody>
             </table>
-            <p className="text-right">
-              <Button onClick={() => this.loadPage(currentPage)} level="primary" size="sm">Apply</Button>
-            </p>
           </div>
           </div>
         </div>
@@ -262,10 +260,6 @@ export class ListResources extends React.Component<IProps, IState> {
           numPerPage={rows ? rows.length : null}
         />
         {error}
-        {showSettings && <ListSettings
-          onSubmit={(_) => null}
-          visibleColumns={visibleColumns}
-        />}
       </div>
     );
   }
@@ -306,6 +300,11 @@ export class ListResources extends React.Component<IProps, IState> {
 
   private onParamFormChange = (args: IOperationParameters) => {
     this.params = args;
+    clearTimeout(this.paramFormDebounceTimeout);
+    this.paramFormDebounceTimeout = window.setTimeout(() => {
+      const { currentPage } = this.state;
+      this.loadPage(currentPage);
+    }, 500);
   }
 
   private onClickSettings = (e: any) => {
