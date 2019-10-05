@@ -34,7 +34,11 @@ class ProjectManager {
     }
 
     if (this.project.initialize) {
-      this.project.initialize(getAxios());
+      try {
+        this.project.initialize(getAxios());
+      } catch (e) {
+        // Toast notification with error message and suggestions for fixing
+      }
     }
 
     try {

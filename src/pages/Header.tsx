@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 import { authTokenKey } from "src/constants";
+import { getRouterManager } from "src/lib/RouterManager";
 import { getToastManager } from "src/lib/ToastManager";
 
 interface IBreadcrumb {
@@ -34,7 +35,7 @@ export class Header extends React.Component<IHeaderProps, IState> {
     return (
       <>
         <header className="navbar pt-0 pb-0 border-0 navbar-expand-lg">
-          <span className="navbar-brand mr-auto">crud wizard</span>
+          <span className="navbar-brand mr-auto"><Link to="/projects">crud wizard</Link></span>
           <ul className="navbar-nav">
             <li className={`nav-item dropdown ${settingsOpen ? "show" : ""}`}>
               <a
@@ -48,7 +49,7 @@ export class Header extends React.Component<IHeaderProps, IState> {
                 <i className="zmdi zmdi-account"/>
               </a>
               <div className={`dropdown-menu dropdown-menu-right ${settingsOpen ? "show" : ""}`}>
-                <a href="javascript:void(0)" onClick={this.signOut}>Sign Out</a>
+                <a className="dropdown-item" href="javascript:void(0)" onClick={this.signOut}>Sign Out</a>
               </div>
             </li>
           </ul>
@@ -71,7 +72,8 @@ export class Header extends React.Component<IHeaderProps, IState> {
   private signOut = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     window.localStorage.removeItem(authTokenKey);
-    // this.props.history.push("/login");
+    const history = getRouterManager().getHistory();
+    if (history) { history.push("/"); }
     getToastManager().addToast("Thanks for playing!")
   }
 

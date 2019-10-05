@@ -89,7 +89,7 @@ export class LogIn extends React.Component<IProps, IState> {
           )}
         />
         <p className="text-center">
-            Don't have an account? <Link to="/">Sign Up</Link>
+            Don't have an account? <Link to="/signup">Sign Up</Link>
         </p>
       </Home>
     );

@@ -1,7 +1,7 @@
 import * as axios from "axios";
+import "codemirror/lib/codemirror.css";
+import "codemirror/mode/javascript/javascript";
 import * as React from "react";
-import "react-codemirror/node_modules/codemirror/lib/codemirror.css";
-import "react-codemirror/node_modules/codemirror/mode/javascript/javascript";
 import * as ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, RouteComponentProps, withRouter } from "react-router-dom";
 import { Toaster } from "src/components/Toaster";
@@ -17,11 +17,14 @@ import { Projects } from "src/pages/projects/Projects";
 import { ResourceDesktop } from "src/pages/resources/ResourceDesktop";
 import { SignUp } from "src/pages/SignUp";
 import registerServiceWorker from "src/registerServiceWorker";
+import { getRouterManager } from './lib/RouterManager';
 
 class App extends React.Component<RouteComponentProps, {}> {
 
   public constructor(props: RouteComponentProps) {
     super(props);
+
+    getRouterManager().setHistory(this.props.history);
 
     axios.default.interceptors.request.use((config) => {
       const authToken = localStorage.getItem(authTokenKey);
@@ -39,7 +42,7 @@ class App extends React.Component<RouteComponentProps, {}> {
         console.error(error);
         if (error && error.response && error.response.status === 401) {
           localStorage.removeItem(authTokenKey);
-          this.props.history.push("/login");
+          this.props.history.push("/");
           getToastManager().addToast("Your session has expired");
         } else {
           throw error;
@@ -57,14 +60,14 @@ class App extends React.Component<RouteComponentProps, {}> {
   public render() {
     return (
       <div className="router">
-        <Route path="/" exact={true} component={SignUp} />
+      <Route path="/" exact={true} component={LogIn} />
+        <Route path="/signup" exact={true} component={SignUp} />
         <Route path="/docs" exact={true} component={IntroductionDoc} />
         <Route path="/docs/getting-started" exact={true} component={GettingStartedDoc} />
-        <Route path="/login" component={LogIn} />
         <Route path="/projects" exact={true} component={Projects} />
-        <Route path="/create-project" component={CreateProject} />
-        <Route path="/projects/:projectId/edit" component={EditProject} />
-        <Route path="/projects/:projectId/desktop" component={ResourceDesktop} />
+        <Route path="/create-project" exact={true} component={CreateProject} />
+        <Route path="/projects/:projectId/edit" exact={true} component={EditProject} />
+        <Route path="/projects/:projectId/desktop" exact={true} component={ResourceDesktop} />
         <Toaster />
       </div>
     );

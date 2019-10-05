@@ -858,10 +858,10 @@ export const petstore: Spec = {
       "type": "oauth2",
       "authorizationUrl": "https://petstore.swagger.io/oauth/dialog",
       "flow": "implicit",
-      "scopes": {
+      "scopes": [{
         "write:pets": "modify pets in your account",
         "read:pets": "read your pets"
-      }
+      }]
     },
     "api_key": {
       "type": "apiKey",

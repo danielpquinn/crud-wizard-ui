@@ -102,7 +102,7 @@ export class ProjectForm extends React.Component<IProps, IState> {
         initialValues={initialValues}
         onSubmit={onSubmit}
         render={({ handleSubmit, form }) => {
-          const values = form.getState().values || {};
+          const values: any = form.getState().values || {};
           const specs = values && values.specs || [];
           const resources = values && values.resources || [];
           const specOptions = specs.map((spec: any) => ({ value: spec.id, label: spec.id }));
@@ -125,7 +125,7 @@ export class ProjectForm extends React.Component<IProps, IState> {
                       name="specs"
                       render={({ fields }) => (
                         <>
-                          {fields.map((name, index) => (
+                          {fields.map((name: any, index: number) => (
                             <div className="card mb-4 bg-light" key={index}>
                               <div className="card-header d-flex">
                                 <div className="flex-grow-1 mr-3">
@@ -172,7 +172,7 @@ export class ProjectForm extends React.Component<IProps, IState> {
                       name="resources"
                       render={({ fields }) => (
                         <>
-                          {fields.map((name, index) => {
+                          {fields.map((name: any, index: number) => {
                             const spec = form.getFieldState(`${name}.spec`);
                             const innerOperationOptions = spec ? operationOptions[spec.value] : [];
 
@@ -274,7 +274,7 @@ export class ProjectForm extends React.Component<IProps, IState> {
                                               </tr>
                                             </thead>
                                             <tbody>
-                                              {props.fields.map((innerName, innerIndex) => (
+                                              {props.fields.map((innerName: string, innerIndex: number) => (
                                                 <tr key={innerIndex}>
                                                   <td><TextInput name={`${innerName}.resourceId`} /></td>
                                                   <td><TextInput name={`${innerName}.field`} /></td>

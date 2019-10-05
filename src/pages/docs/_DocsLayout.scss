@@ -1,21 +1,17 @@
-.docs {
-  font-size: 1rem;
+.docs-content-wrapper {
+  background-color: $gray-300;
 }
 
-.docs p {
-  line-height: 1.8rem;
-  margin-bottom: 1.5rem;
-}
+.docs-content {
+  font-size: 1.1rem;
+  line-height: 2rem;
+  max-width: 800px;
 
-.docs h1 {
-  margin-bottom: 2rem;
-  font-weight: lighter;
-}
+  h1, h2, h3, h4, p, ul, ol {
+    margin-bottom: 2rem;
+  }
 
-.docs h2 {
-  margin-bottom: 1rem;
-}
-
-.docs section {
-  margin-bottom: 3rem;
+  h1 {
+    color: $yellow;
+  }
 }

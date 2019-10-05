@@ -43,7 +43,7 @@ export class CreateProject extends React.Component<IProps, IState> {
               </ol>
             </nav>
             <h3>Create Project</h3>
-            <ProjectForm onSubmit={this.onSubmit} initialValues={undefined} />
+            <ProjectForm onSubmit={this.onSubmit} initialValues={{ name: "", specs: [], resources: [] }} />
           </div>
         </div>
       </div>
