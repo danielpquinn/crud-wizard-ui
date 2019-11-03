@@ -50,8 +50,7 @@ export class SignUp extends React.Component<IProps, IState> {
 
     return (
       <Home>
-        <h2 className="mb-4">Free for 30 days 🧙‍♂️</h2>
-        <h5 className="mb-4">No credit card required to sign up, cancel any time.</h5>
+        <h2 className="mb-4">Sign Up</h2>
         <FinalForm
           onSubmit={this.onSubmit}
           render={({ handleSubmit, values }) => (
