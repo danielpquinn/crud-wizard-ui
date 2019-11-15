@@ -74,6 +74,15 @@ const getItemsHelp = {
   )
 };
 
+const getApiSpecHelp = {
+  title: "OpenAPI Spec",
+  content: (
+    <>
+      <p>Enter the OpenAPI specification file name specified within <b>Specs</b> under the <b>Edit Project</b> tab.</p>
+    </>
+  )
+};
+
 export class ProjectForm extends React.Component<IProps, IState> {
 
   constructor(props: IProps) {
@@ -192,7 +201,7 @@ export class ProjectForm extends React.Component<IProps, IState> {
                                   <table className="mb-3 w-100">
                                     <tbody>
                                       <tr>
-                                        <td className="text-right pr-1 w-25">OpenAPI Spec<span className="text-info">* <a href="javascript:void(0);" onClick={this.showGetListItemsHelp}><i className="zmdi zmdi-info"/></a></span></td>
+                                        <td className="text-right pr-1 w-25">OpenAPI Spec<span className="text-info">* <a href="javascript:void(0);" onClick={this.showGetApiSpecHelp}><i className="zmdi zmdi-info"/></a></span></td>
                                         <td><Select options={specOptions} name={`${name}.spec`} /></td>
                                       </tr>
                                       <tr>
@@ -349,6 +358,12 @@ export class ProjectForm extends React.Component<IProps, IState> {
   private showGetListItemsHelp = () => {
     this.setState({
       helpDialog: getItemsHelp
+    });
+  };
+
+  private showGetApiSpecHelp = () => {
+    this.setState({
+      helpDialog: getApiSpecHelp
     });
   };
 
