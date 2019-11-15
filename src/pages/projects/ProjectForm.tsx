@@ -192,55 +192,55 @@ export class ProjectForm extends React.Component<IProps, IState> {
                                   <table className="mb-3 w-100">
                                     <tbody>
                                       <tr>
-                                        <td className="text-right pr-1 w-25">OpenAPI Spec<span className="text-info">*</span></td>
+                                        <td className="text-right pr-1 w-25">OpenAPI Spec<span className="text-info">* <a href="javascript:void(0);" onClick={this.showGetListItemsHelp}><i className="zmdi zmdi-info"/></a></span></td>
                                         <td><Select options={specOptions} name={`${name}.spec`} /></td>
                                       </tr>
                                       <tr>
-                                        <td className="text-right pr-1">ID<span className="text-info">*</span></td>
+                                        <td className="text-right pr-1">ID<span className="text-info">* <a href="javascript:void(0);" onClick={this.showGetListItemsHelp}><i className="zmdi zmdi-info"/></a></span></td>
                                         <td><TextInput name={`${name}.id`} /></td>
                                       </tr>
                                       <tr>
-                                        <td className="text-right pr-1">ID Field<span className="text-info">*</span></td>
+                                        <td className="text-right pr-1">ID Field<span className="text-info">* <a href="javascript:void(0);" onClick={this.showGetListItemsHelp}><i className="zmdi zmdi-info"/></a></span></td>
                                         <td><TextInput name={`${name}.idField`}/></td>
                                       </tr>
                                       <tr>
-                                        <td className="text-right pr-1">Create Operation</td>
+                                        <td className="text-right pr-1">Create Operation <a href="javascript:void(0);" onClick={this.showGetListItemsHelp}><i className="zmdi zmdi-info"/></a></td>
                                         <td><Select options={innerOperationOptions} name={`${name}.createOperation`} /></td>
                                       </tr>
                                       <tr>
-                                        <td className="text-right pr-1">List Operation<span className="text-info">*</span></td>
+                                        <td className="text-right pr-1">List Operation<span className="text-info">* <a href="javascript:void(0);" onClick={this.showGetListItemsHelp}><i className="zmdi zmdi-info"/></a></span></td>
                                         <td><Select options={innerOperationOptions} name={`${name}.listOperation`} /></td>
                                       </tr>
                                       <tr>
-                                        <td className="text-right pr-1">Get Operation</td>
+                                        <td className="text-right pr-1">Get Operation <a href="javascript:void(0);" onClick={this.showGetListItemsHelp}><i className="zmdi zmdi-info"/></a></td>
                                         <td><Select options={innerOperationOptions} name={`${name}.getOperation`} /></td>
                                       </tr>
                                       <tr>
-                                        <td className="text-right pr-1">Update Operation</td>
+                                        <td className="text-right pr-1">Update Operation <a href="javascript:void(0);" onClick={this.showGetListItemsHelp}><i className="zmdi zmdi-info"/></a></td>
                                         <td><Select options={innerOperationOptions} name={`${name}.updateOperation`} /></td>
                                       </tr>
                                       <tr>
-                                        <td className="text-right pr-1">Delete Operation</td>
+                                        <td className="text-right pr-1">Delete Operation <a href="javascript:void(0);" onClick={this.showGetListItemsHelp}><i className="zmdi zmdi-info"/></a></td>
                                         <td><Select options={innerOperationOptions} name={`${name}.deleteOperation`} /></td>
                                       </tr>
                                       <tr>
-                                        <td className="text-right pr-1">Parameter Name</td>
+                                        <td className="text-right pr-1">Parameter Name <a href="javascript:void(0);" onClick={this.showGetListItemsHelp}><i className="zmdi zmdi-info"/></a></td>
                                         <td><TextInput name={`${name}.parameterName`}/></td>
                                       </tr>
                                       <tr>
-                                        <td className="text-right pr-1">List Item Schema</td>
+                                        <td className="text-right pr-1">List Item Schema <a href="javascript:void(0);" onClick={this.showGetListItemsHelp}><i className="zmdi zmdi-info"/></a></td>
                                         <td><TextInput name={`${name}.listItemSchema`}/></td>
                                       </tr>
                                       <tr>
-                                        <td className="text-right pr-1">Name Plural</td>
+                                        <td className="text-right pr-1">Name Plural <a href="javascript:void(0);" onClick={this.showGetListItemsHelp}><i className="zmdi zmdi-info"/></a></td>
                                         <td><TextInput name={`${name}.namePlural`}/></td>
                                       </tr>
                                       <tr>
-                                        <td className="text-right pr-1">Name Field<span className="text-info">*</span></td>
+                                        <td className="text-right pr-1">Name Field<span className="text-info">* <a href="javascript:void(0);" onClick={this.showGetListItemsHelp}><i className="zmdi zmdi-info"/></a></span></td>
                                         <td><TextInput name={`${name}.nameField`}/></td>
                                       </tr>
                                       <tr>
-                                        <td className="text-right pr-1">Detail Item Schema</td>
+                                        <td className="text-right pr-1">Detail Item Schema <a href="javascript:void(0);" onClick={this.showGetListItemsHelp}><i className="zmdi zmdi-info"/></a></td>
                                         <td><TextInput name={`${name}.detailItemSchema`}/></td>
                                       </tr>
                                       <tr>
@@ -248,11 +248,11 @@ export class ProjectForm extends React.Component<IProps, IState> {
                                         <td><CodeInput mode="javascript" name={`${name}.getListItems`}/></td>
                                       </tr>
                                       <tr>
-                                        <td className="text-right pr-1">Get Detail Item</td>
+                                        <td className="text-right pr-1">Get Detail Item <a href="javascript:void(0);" onClick={this.showGetListItemsHelp}><i className="zmdi zmdi-info"/></a></td>
                                         <td><CodeInput mode="javascript" name={`${name}.getDetailItem`}/></td>
                                       </tr>
                                       <tr>
-                                        <td className="text-right pr-1">Get Update Form Defaults</td>
+                                        <td className="text-right pr-1">Get Update Form Defaults <a href="javascript:void(0);" onClick={this.showGetListItemsHelp}><i className="zmdi zmdi-info"/></a></td>
                                         <td><CodeInput mode="javascript" name={`${name}.getUpdateFormDefaults`}/></td>
                                       </tr>
                                     </tbody>
