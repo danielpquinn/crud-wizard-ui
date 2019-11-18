@@ -83,6 +83,24 @@ const getApiSpecHelp = {
   )
 };
 
+const getIdHelp = {
+  title: "ID",
+  content: (
+    <>
+      <p>Enter an identification name.</p>
+    </>
+  )
+};
+
+const getFieldIdHelp = {
+  title: "ID Field",
+  content: (
+    <>
+      <p>Enter an ID Field name.</p>
+    </>
+  )
+};
+
 export class ProjectForm extends React.Component<IProps, IState> {
 
   constructor(props: IProps) {
@@ -205,11 +223,11 @@ export class ProjectForm extends React.Component<IProps, IState> {
                                         <td><Select options={specOptions} name={`${name}.spec`} /></td>
                                       </tr>
                                       <tr>
-                                        <td className="text-right pr-1">ID<span className="text-info">* <a href="javascript:void(0);" onClick={this.showGetListItemsHelp}><i className="zmdi zmdi-info"/></a></span></td>
+                                        <td className="text-right pr-1">ID<span className="text-info">* <a href="javascript:void(0);" onClick={this.showGetIdHelp}><i className="zmdi zmdi-info"/></a></span></td>
                                         <td><TextInput name={`${name}.id`} /></td>
                                       </tr>
                                       <tr>
-                                        <td className="text-right pr-1">ID Field<span className="text-info">* <a href="javascript:void(0);" onClick={this.showGetListItemsHelp}><i className="zmdi zmdi-info"/></a></span></td>
+                                        <td className="text-right pr-1">ID Field<span className="text-info">* <a href="javascript:void(0);" onClick={this.showGetFieldIdHelp}><i className="zmdi zmdi-info"/></a></span></td>
                                         <td><TextInput name={`${name}.idField`}/></td>
                                       </tr>
                                       <tr>
@@ -366,6 +384,18 @@ export class ProjectForm extends React.Component<IProps, IState> {
       helpDialog: getApiSpecHelp
     });
   };
+
+  private showGetIdHelp = () => {
+    this.setState({
+      helpDialog: getIdHelp
+    });
+  }
+
+  private showGetFieldIdHelp = () => {
+    this.setState({
+      helpDialog: getFieldIdHelp
+    });
+  }
 
   private closeHelpDialog = () => {
     this.setState({
