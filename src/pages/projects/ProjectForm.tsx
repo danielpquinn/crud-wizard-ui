@@ -101,6 +101,15 @@ const getFieldIdHelp = {
   )
 };
 
+const getCreateOperationHelp = {
+  title: "Create Operation",
+  content: (
+    <>
+       <p>Enter a create operation.</p>
+    </>
+  )
+};
+
 export class ProjectForm extends React.Component<IProps, IState> {
 
   constructor(props: IProps) {
@@ -231,7 +240,7 @@ export class ProjectForm extends React.Component<IProps, IState> {
                                         <td><TextInput name={`${name}.idField`}/></td>
                                       </tr>
                                       <tr>
-                                        <td className="text-right pr-1">Create Operation <a href="javascript:void(0);" onClick={this.showGetListItemsHelp}><i className="zmdi zmdi-info"/></a></td>
+                                        <td className="text-right pr-1">Create Operation <a href="javascript:void(0);" onClick={this.showCreateOperationHelp}><i className="zmdi zmdi-info"/></a></td>
                                         <td><Select options={innerOperationOptions} name={`${name}.createOperation`} /></td>
                                       </tr>
                                       <tr>
@@ -394,6 +403,12 @@ export class ProjectForm extends React.Component<IProps, IState> {
   private showGetFieldIdHelp = () => {
     this.setState({
       helpDialog: getFieldIdHelp
+    });
+  }
+
+  private showCreateOperationHelp = () => {
+    this.setState({
+      helpDialog: getCreateOperationHelp
     });
   }
 
