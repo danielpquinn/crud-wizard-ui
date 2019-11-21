@@ -110,6 +110,15 @@ const getCreateOperationHelp = {
   )
 };
 
+const getListOperationHelp = {
+  title: "List Operation",
+  content: (
+    <>
+       <p>Enter a list operation.</p>
+    </>
+  )
+};
+
 export class ProjectForm extends React.Component<IProps, IState> {
 
   constructor(props: IProps) {
@@ -244,7 +253,7 @@ export class ProjectForm extends React.Component<IProps, IState> {
                                         <td><Select options={innerOperationOptions} name={`${name}.createOperation`} /></td>
                                       </tr>
                                       <tr>
-                                        <td className="text-right pr-1">List Operation<span className="text-info">* <a href="javascript:void(0);" onClick={this.showGetListItemsHelp}><i className="zmdi zmdi-info"/></a></span></td>
+                                        <td className="text-right pr-1">List Operation<span className="text-info">* <a href="javascript:void(0);" onClick={this.showListOperationHelp}><i className="zmdi zmdi-info"/></a></span></td>
                                         <td><Select options={innerOperationOptions} name={`${name}.listOperation`} /></td>
                                       </tr>
                                       <tr>
@@ -409,6 +418,12 @@ export class ProjectForm extends React.Component<IProps, IState> {
   private showCreateOperationHelp = () => {
     this.setState({
       helpDialog: getCreateOperationHelp
+    });
+  }
+
+  private showListOperationHelp = () => {
+    this.setState({
+      helpDialog: getListOperationHelp
     });
   }
 
