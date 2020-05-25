@@ -33,6 +33,123 @@ interface IState {
   helpDialog: { title: string, content: React.ReactNode } | null;
 }
 
+const getApiSpecHelp = {
+  title: "OpenAPI Spec",
+  content: (
+    <>
+      <p>Select the OpenAPI specification file name from the dropdown selection (this should contain the same name specified in the <b>Specs</b> tab under the <b>Edit Project</b> tab).</p>
+    </>
+  )
+};
+
+const getIdHelp = {
+  title: "ID",
+  content: (
+    <>
+      <p>Enter an identification name.</p>
+    </>
+  )
+};
+
+const getFieldIdHelp = {
+  title: "ID Field",
+  content: (
+    <>
+      <p>Enter an ID Field name.</p>
+    </>
+  )
+};
+
+const getCreateOperationHelp = {
+  title: "Create Operation",
+  content: (
+    <>
+       <p>Select a Create Operation from the dropdown menu.</p>
+    </>
+  )
+};
+
+const getListOperationHelp = {
+  title: "List Operation",
+  content: (
+    <>
+       <p>Select a List Operation from the dropdown menu.</p>
+    </>
+  )
+};
+
+const getGetOperationHelp = {
+  title: "Get Operation",
+  content: (
+    <>
+       <p>Select a Get Operation from the dropdown menu.</p>
+    </>
+  )
+};
+
+const getUpdateOperationHelp = {
+  title: "Update Operation",
+  content: (
+    <>
+       <p>Select an Update Operation from the dropdown menu.</p>
+    </>
+  )
+};
+
+const getDeleteOperationHelp = {
+  title: "Delete Operation",
+  content: (
+    <>
+       <p>Select an Delete Operation from the dropdown menu.</p>
+    </>
+  )
+};
+
+const getParameterOperationHelp = {
+  title: "Parameter Operation",
+  content: (
+    <>
+       <p>Enter a Parameter name.</p>
+    </>
+  )
+};
+
+const getListItemsSchemaHelp = {
+  title: "List Item Schema",
+  content: (
+    <>
+       <p>Enter a List Item Schema name.</p>
+    </>
+  )
+};
+
+const getNamePluralHelp = {
+  title: "Name Plural",
+  content: (
+    <>
+       <p>Enter the previously specified name in plural.</p>
+    </>
+  )
+};
+
+const getNameFieldHelp = {
+  title: "Name Field",
+  content: (
+    <>
+       <p>Enter a name field name.</p>
+    </>
+  )
+};
+
+const getDetailItemSchemaHelp = {
+  title: "Detail Item Schema",
+  content: (
+    <>
+       <p>Enter a detail item schema name.</p>
+    </>
+  )
+};
+
 const getItemsHelpExampleResponse = `{
   data: {
     items: [
@@ -192,55 +309,56 @@ export class ProjectForm extends React.Component<IProps, IState> {
                                   <table className="mb-3 w-100">
                                     <tbody>
                                       <tr>
-                                        <td className="text-right pr-1 w-25">OpenAPI Spec<span className="text-info">*</span></td>
+                                        <td className="text-right pr-1 w-25">OpenAPI Spec<span className="text-info">* <a href="javascript:void(0);" onClick={this.showGetApiSpecHelp}><i className="zmdi zmdi-info"/></a></span></td>
                                         <td><Select options={specOptions} name={`${name}.spec`} /></td>
                                       </tr>
                                       <tr>
-                                        <td className="text-right pr-1">ID<span className="text-info">*</span></td>
+                                        <td className="text-right pr-1">ID<span className="text-info">* <a href="javascript:void(0);" onClick={this.showGetIdHelp}><i className="zmdi zmdi-info"/></a></span></td>
                                         <td><TextInput name={`${name}.id`} /></td>
                                       </tr>
                                       <tr>
-                                        <td className="text-right pr-1">ID Field<span className="text-info">*</span></td>
+                                        <td className="text-right pr-1">ID Field<span className="text-info">* <a href="javascript:void(0);" onClick={this.showGetFieldIdHelp}><i className="zmdi zmdi-info"/></a></span></td>
                                         <td><TextInput name={`${name}.idField`}/></td>
                                       </tr>
                                       <tr>
-                                        <td className="text-right pr-1">Create Operation</td>
+                                        <td className="text-right pr-1">Create Operation <a href="javascript:void(0);" onClick={this.showCreateOperationHelp}><i className="zmdi zmdi-info"/></a></td>
                                         <td><Select options={innerOperationOptions} name={`${name}.createOperation`} /></td>
                                       </tr>
                                       <tr>
-                                        <td className="text-right pr-1">List Operation<span className="text-info">*</span></td>
+                                        <td className="text-right pr-1">List Operation<span className="text-info">* <a href="javascript:void(0);" onClick={this.showListOperationHelp}><i className="zmdi zmdi-info"/></a></span></td>
                                         <td><Select options={innerOperationOptions} name={`${name}.listOperation`} /></td>
                                       </tr>
                                       <tr>
-                                        <td className="text-right pr-1">Get Operation</td>
+                                        <td className="text-right pr-1">Get Operation <a href="javascript:void(0);" onClick={this.showGetOperationHelp}><i className="zmdi zmdi-info"/></a></td>
                                         <td><Select options={innerOperationOptions} name={`${name}.getOperation`} /></td>
                                       </tr>
                                       <tr>
-                                        <td className="text-right pr-1">Update Operation</td>
+                                        <td className="text-right pr-1">Update Operation <a href="javascript:void(0);" onClick={this.showUpdateOperationHelp}><i className="zmdi zmdi-info"/></a></td>
                                         <td><Select options={innerOperationOptions} name={`${name}.updateOperation`} /></td>
                                       </tr>
                                       <tr>
-                                        <td className="text-right pr-1">Delete Operation</td>
+                                        <td className="text-right pr-1">Delete Operation <a href="javascript:void(0);" onClick={this.showDeleteOperationHelp}><i className="zmdi zmdi-info"/></a></td>
                                         <td><Select options={innerOperationOptions} name={`${name}.deleteOperation`} /></td>
                                       </tr>
                                       <tr>
-                                        <td className="text-right pr-1">Parameter Name</td>
+                                        <td className="text-right pr-1">Parameter 
+                                        <a href="javascript:void(0);" onClick={this.showParameterOperationHelp}><i className="zmdi zmdi-info"/></a></td>
                                         <td><TextInput name={`${name}.parameterName`}/></td>
                                       </tr>
                                       <tr>
-                                        <td className="text-right pr-1">List Item Schema</td>
+                                        <td className="text-right pr-1">List Item Schema <a href="javascript:void(0);" onClick={this.showListItemsSchemaHelp}><i className="zmdi zmdi-info"/></a></td>
                                         <td><TextInput name={`${name}.listItemSchema`}/></td>
                                       </tr>
                                       <tr>
-                                        <td className="text-right pr-1">Name Plural</td>
+                                        <td className="text-right pr-1">Name Plural <a href="javascript:void(0);" onClick={this.showGetNamePluralHelp}><i className="zmdi zmdi-info"/></a></td>
                                         <td><TextInput name={`${name}.namePlural`}/></td>
                                       </tr>
                                       <tr>
-                                        <td className="text-right pr-1">Name Field<span className="text-info">*</span></td>
+                                        <td className="text-right pr-1">Name Field<span className="text-info">* <a href="javascript:void(0);" onClick={this.showGetNameFieldHelp}><i className="zmdi zmdi-info"/></a></span></td>
                                         <td><TextInput name={`${name}.nameField`}/></td>
                                       </tr>
                                       <tr>
-                                        <td className="text-right pr-1">Detail Item Schema</td>
+                                        <td className="text-right pr-1">Detail Item Schema <a href="javascript:void(0);" onClick={this.showDetailItemSchemaHelp}><i className="zmdi zmdi-info"/></a></td>
                                         <td><TextInput name={`${name}.detailItemSchema`}/></td>
                                       </tr>
                                       <tr>
@@ -248,11 +366,11 @@ export class ProjectForm extends React.Component<IProps, IState> {
                                         <td><CodeInput mode="javascript" name={`${name}.getListItems`}/></td>
                                       </tr>
                                       <tr>
-                                        <td className="text-right pr-1">Get Detail Item</td>
+                                        <td className="text-right pr-1">Get Detail Item <a href="javascript:void(0);" onClick={this.showGetListItemsHelp}><i className="zmdi zmdi-info"/></a></td>
                                         <td><CodeInput mode="javascript" name={`${name}.getDetailItem`}/></td>
                                       </tr>
                                       <tr>
-                                        <td className="text-right pr-1">Get Update Form Defaults</td>
+                                        <td className="text-right pr-1">Get Update Form Defaults <a href="javascript:void(0);" onClick={this.showGetListItemsHelp}><i className="zmdi zmdi-info"/></a></td>
                                         <td><CodeInput mode="javascript" name={`${name}.getUpdateFormDefaults`}/></td>
                                       </tr>
                                     </tbody>
@@ -344,6 +462,84 @@ export class ProjectForm extends React.Component<IProps, IState> {
         }}
       />
     );
+  }
+
+  private showGetApiSpecHelp = () => {
+    this.setState({
+      helpDialog: getApiSpecHelp
+    });
+  };
+
+  private showGetIdHelp = () => {
+    this.setState({
+      helpDialog: getIdHelp
+    });
+  }
+
+  private showGetFieldIdHelp = () => {
+    this.setState({
+      helpDialog: getFieldIdHelp
+    });
+  }
+
+  private showCreateOperationHelp = () => {
+    this.setState({
+      helpDialog: getCreateOperationHelp
+    });
+  }
+
+  private showListOperationHelp = () => {
+    this.setState({
+      helpDialog: getListOperationHelp
+    });
+  }
+
+  private showGetOperationHelp = () => {
+    this.setState({
+      helpDialog: getGetOperationHelp
+    });
+  };
+
+  private showUpdateOperationHelp = () => {
+    this.setState({
+      helpDialog: getUpdateOperationHelp
+    });
+  };
+  
+  private showDeleteOperationHelp = () => {
+    this.setState({
+      helpDialog: getDeleteOperationHelp
+    });
+  };
+
+  private showParameterOperationHelp = () => {
+    this.setState({
+      helpDialog: getParameterOperationHelp
+    });
+  };
+
+  private showListItemsSchemaHelp = () => {
+    this.setState({
+      helpDialog: getListItemsSchemaHelp
+    });
+  };
+
+  private showGetNamePluralHelp = () => {
+    this.setState({
+      helpDialog: getNamePluralHelp
+    });
+  };
+
+  private showGetNameFieldHelp = () => {
+    this.setState({
+      helpDialog: getNameFieldHelp
+    });
+  }
+
+  private showDetailItemSchemaHelp = () => {
+    this.setState({
+      helpDialog: getDetailItemSchemaHelp
+    });
   }
 
   private showGetListItemsHelp = () => {
