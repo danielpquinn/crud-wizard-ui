@@ -11,7 +11,7 @@
     "axios": "^0.18.0",
     "bootstrap": "^4.2.1",
     "bootstrap-scss": "^4.2.1",
-    "codemirror": "^5.42.2",
+    "codemirror": "^5.58.2",
     "final-form": "^4.11.1",
     "final-form-arrays": "^1.1.2",
     "lodash": "^4.17.11",
